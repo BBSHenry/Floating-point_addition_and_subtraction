@@ -49,10 +49,10 @@ static unsigned positive_float_add(unsigned a, unsigned b)
   }
   else
     b1 = b1 >> (a2 - b2);
-  unsigned long long ab1 = (unsigned long long)a1+b1;
+  unsigned ab1 = a1+b1;
   int count = 0;
   int p = 0;
-  unsigned long long ab2 = ab1;
+  unsigned ab2 = ab1;
   while(ab2!=0){
     count++;
 	ab2 = ab2 >> 1;
@@ -61,7 +61,7 @@ static unsigned positive_float_add(unsigned a, unsigned b)
     p = p + 1;
   p = p + bigexp;
   p = p + 127;
-  unsigned long long new_mantissa = (ab1 >> (count - 24))&0x7FFFFF;
+  unsigned new_mantissa = (ab1 >> (count - 24))&0x7FFFFF;
   unsigned final = 0;
   final = final + p;
   final = final << 23;
